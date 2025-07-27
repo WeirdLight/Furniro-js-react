@@ -1,0 +1,65 @@
+@import '../../../App.scss';
+
+
+.container.banner-container{
+    background-image: $banner-bg;
+    height: calc(100vh - 100px);
+    background-position: center center;
+    background-size: cover;
+    padding-inline: 58px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    .card{
+        max-width: 643px;
+        width: 100%;
+        max-height: 443px;
+        height: 100%;
+        background-color: $card-bg;
+        padding: 62px 42px 37px 39px;
+
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 100%;
+            .label{
+                @include text($label-color, $label-fs, 600, $ff-poppins);
+                letter-spacing: 3px;
+                margin-bottom: 4px;
+            }
+            .card-title{
+                h1{
+                    @include text($primary, $title-banner-fs, 700, $ff-poppins);
+                    line-height: 65px;
+                    margin-bottom: 17px;  
+                    max-width: 400px;
+                    width: 100%;
+                }
+                
+            }
+            .descr{
+                @include text($banner-descr-color, $banner-descr-fs, 500, $ff-poppins);
+                line-height: 24px;
+            }
+
+            .btn{
+                width: 222px;
+                height: 74px;
+                background-color: $primary;
+                @include text($button-text-color, $button-text-fs, 700, $ff-poppins);
+                border: none;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: darken($primary, 5%);
+                }
+                &:active{
+                    background-color: darken($primary, 10%);
+                }
+            }
+        }
+    }
+}

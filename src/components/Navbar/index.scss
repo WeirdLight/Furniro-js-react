@@ -1,0 +1,62 @@
+@import '../../App.scss';
+
+@mixin navbar-wrapper($class-name, $max-width){
+    .navbar-collapse.#{$class-name} {
+        width: $max-width;
+
+        .navbar-nav{
+            display: flex;
+            justify-content: space-between;
+            
+            @if $class-name == navbar-pages{
+                .nav-link{
+                    @include text($color: $navbar-color, $fs: $navbar-fs, $fw: medium, $ff: $ff-poppins);
+                    border-bottom: 1px solid transparent;
+                    padding-bottom: 3px;
+
+                    &:hover{
+                        border-bottom-color: $navbar-color;
+                    }
+
+                    &:active{
+                        border-bottom-color: $primary;
+                        color: $primary;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.navbar{
+    height: 100px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: $navbar-bg;
+    z-index: 1;
+
+    .container{
+        margin: 0 auto;;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 89%;
+        height: 100%;
+
+        .navbar-brand{
+            display: flex;
+            align-items: center;
+
+            @include text($color: $logo-color, $fs: $logo-fs, $fw: bold, $ff: $ff-montserrat);
+            img{
+                width: 50px;
+                height: 32px;
+            }
+        }
+
+        @include navbar-wrapper(navbar-pages, 33.4%);
+        @include navbar-wrapper(navbar-tools, 19.2%);
+    }
+}

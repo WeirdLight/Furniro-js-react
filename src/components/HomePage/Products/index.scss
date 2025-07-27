@@ -1,0 +1,177 @@
+@import '../../../App.scss';
+
+.container.products-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 56px; 
+    width: 89%;
+    margin: 56px auto 69px auto;
+       
+    .title{
+        @include text($title-color, $title-fs, 700, $ff-poppins);
+    }
+
+    button{
+        width: 202px;
+        height: 48px;
+        background-color: $product-btn-bg;
+        @include text($primary, $product-option-fs, 600, $ff-poppins);
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &.btn-products{
+            border-color: $primary;
+            width: 245px;
+
+            &:hover{
+                border: 5px solid $primary;
+                background-color: $product-btn-bg;
+                color: $primary;
+            }
+            &:active{
+                background-color: $primary;
+                color: $product-btn-bg;
+                border-color: transparent;
+            }
+        }
+        &:hover{
+            border-color: $primary;
+        }   
+        &:focus{
+            outline: none;
+        }
+        &:active{
+            background-color: $primary;
+            border-color: transparent;
+            color: $product-btn-bg;
+        }
+    } 
+
+    .shop-items-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 285px);
+        gap: 32px;
+        justify-content: center; 
+        width: 100%;
+        margin: 32px auto 32px auto;
+        
+        .card{
+            width: 285px;
+            position: relative;
+            background-color: $products-card-bg;
+            
+            .card-img{
+                width: 285px;
+            }
+            .card-body{
+                width: 285px;
+                padding: 16px 16px 30px 16px;
+                height: 145px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                &.card-hover{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(58, 58, 58, 0.8);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 16px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    padding-inline: 16px;
+
+                    &:hover{
+                        opacity: 1;
+                    }               
+                    .list-group{
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+
+                        .list-group-item{
+                            display: flex;
+                            align-items: center;
+                            color: $product-option-color;
+                            
+                            a{
+                                @include text($product-option-color, $product-option-fs, 600, $ff-poppins);
+                                text-decoration: none;
+                            }
+
+                            img{
+                                margin-right: 1px;
+                            }
+
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                        a{
+                            @include text($product-option-color, $product-option-fs, 600, $ff-poppins);
+                            text-decoration: none;
+                            margin-left: 1px;
+                            display: flex;
+                            align-items: center;
+
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                }
+
+
+                .badge{
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    border-radius: 50px;
+                    width: 48px;
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    @include text($badge-color, $badge-fs, 500, $ff-poppins);
+
+
+                    &.bg-sale{
+                        background-color: $badge-sale-bg;
+                    }
+                    &.bg-new{
+                        background-color: $badge-new-bg;
+                    }
+                }
+
+                .card-title{
+                    @include text($products-title-color, $products-title-fs, 600, $ff-poppins);
+                }
+
+                .descr{
+                    @include text($products-descr-color, $products-descr-fs, 500, $ff-poppins);
+                }
+                
+                .cost{
+                    @include text($products-title-color, $products-cost-fs, 600, $ff-poppins);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    
+                    .old-cost{
+                        @include text($products-old-cost-color, $products-old-cost-fs, 400, $ff-poppins);
+                        text-decoration: line-through;
+                    }
+                }
+            }
+        }
+    }
+}
