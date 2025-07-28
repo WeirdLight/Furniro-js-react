@@ -9,7 +9,7 @@
     margin: 56px auto 69px auto;
        
     .title{
-        @include text($title-color, $title-fs, 700, $ff-poppins);
+        @include text($title-color, $section-title-fs, 700, $ff-poppins);
     }
 
     button{

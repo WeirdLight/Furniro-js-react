@@ -1,0 +1,222 @@
+@import '../../../App.scss';
+
+.rooms-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    background-color: $rooms-container-bg;
+    height: 670px;
+    width: 100%;
+    justify-content: center;
+
+    .text-side{
+        width: 89%;
+        .title{
+            @include text($title-color, $section-title-fs, 700, $ff-poppins);
+            line-height: 120%;
+            margin: 0;
+            width: 422px;
+        }
+
+        .descr{
+            @include text($rooms-descr-color, $rooms-desr-fs, 500, $ff-poppins);
+            margin-top: 7px;
+            width: 422px;
+        }
+
+        button{
+            width: 176px;
+            height: 48px;
+            background: $primary;
+            @include text($button-text-color, $button-text-fs, 600, $ff-poppins);
+            border: none;
+            margin-top: 25px;;
+        }
+    }
+
+    .image-side{
+        background-color: $rooms-container-bg;
+        display: flex;
+        position: absolute;
+        right: -20%;
+        top: 44px;
+        gap: 24px;
+
+        .room-card{
+            position: relative;
+
+            .card-img-top{
+                width: 372px;
+                height: 486px;
+
+                &.first{
+                    animation: changeImg3 1.5s ease-in-out;
+                    animation-fill-mode: forwards;
+                }            
+                &.second{
+                    animation: changeImg1 3s ease-in-out;
+                    animation-fill-mode: forwards;
+
+                    &+.card-body{
+                        animation: appearDetails 1s ease-in-out;
+                        animation-delay: 2.9s;
+                        animation-fill-mode: forwards;
+                    }
+                }
+                &.third{
+                    animation: changeImg2 3s ease-in-out;
+                    animation-fill-mode: forwards;
+                }
+            }
+
+
+            .card-body{
+                width: 217px;
+                opacity: 0;
+                height: 130px;
+                background: $rooms-title-bg;
+                position: absolute;
+                bottom: 24px;
+                left: 24px;
+                padding: 32px 17px 32px 32px;
+                transition: opacity 0.5s;
+
+                .card-text{
+                    display: flex;
+                    align-items: center;
+                    @include text($rooms-descr-color, $rooms-desr-fs, 500, $ff-poppins);
+                    margin-bottom: 8px
+                }
+
+                .card-title{
+                    @include text($room-title-color, $room-title-fs, 600, $ff-poppins);
+                    margin: 0;
+                }
+
+                hr{
+                    width: 27px;
+                    height: 1px;
+                    background-color: $rooms-descr-color;
+                    margin-inline: 8px;
+                }
+
+                .btn{
+                    position: absolute;
+                    right: -48px;
+                    bottom: 0;
+                    width: 48px;
+                    height: 48px;
+                    color: $button-text-color;
+                    background: $primary;
+                    font-size: $button-icon-fs;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    .carousel {
+        display: flex;
+        position: absolute;
+        bottom: -60px;
+        left: 34%;
+        justify-content: center;
+        gap: 12px;
+        z-index: 2;
+
+        span{
+            border: 1px solid transparent;
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            .dot {
+                width: 11px;
+                height: 11px;
+                border-radius: 50%;
+                background-color: $carousel-btn-bg;
+            }
+
+            &.active {
+                border-color: $primary;
+                .dot {
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+    button.btn-rooms{
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        top: 50%;
+        right: 67px;
+        transform: translateY(-50%);
+        background: $button-bg;
+        color: $primary;
+        font-size: $button-icon-fs;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+        border: none;
+        border-radius: 50%;
+    }
+}
+
+@keyframes appearDetails{
+    0%{
+        opacity: 0;
+        transform: translateX(-428px) translateY(90px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(-428px) translateY(90px);
+    }
+}
+
+@keyframes changeImg1{
+    50%{
+        transform: translateX(-428px);
+    }
+    100%{
+        transform: translateX(-428px) scaleX(1.086) scaleY(1.1975);
+        transform-origin: top left;
+    }
+}
+@keyframes changeImg2{
+    50%{
+        transform: translateX(-396px);
+    }
+    100%{
+        transform: translateX(-396px);
+    }
+}
+@keyframes changeImg3{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        transform: translateX(895px) scaleX(0.92079);
+        transform-origin: top left;
+        opacity: 0;
+    }
+    50%{
+        transform: scaleX(0.92079) translateX(1000px);
+        transform-origin: top left;
+        opacity: 0;
+    }
+    100%{
+        transform: scaleX(0.92079) translateX(865px);
+        transform-origin: top left;
+        opacity: 1;
+    }
+}
+
+//scaleX(1.086) scaleY(1.1975);
